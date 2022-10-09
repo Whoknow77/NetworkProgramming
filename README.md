@@ -144,7 +144,132 @@
     ```
 
 
+## 5주차(대면)
 
+- Polling
+
+
+  <img src="https://ifh.cc/g/azfJhQ.png">
+
+  <img src="https://ifh.cc/g/prmLgA.png">
+
+
+
+- Race condition
+
+  <img src="https://ifh.cc/g/bky1X2.jpg">
+
+
+
+  Main은 For loop 안에서 실행 한 순서대로 Thread가 종료할 때 까지 대기.
+  각 Thread는 Digest를 생성하고 출력 및 종료
+  Main에서 대기 중인 Thread가 종료되면 Digest를 출력하고,
+  다음 Thread가 종료 될 때 까지 대기.
+  ＂각 Thread의 출력은 순서 없음(OS의 Scheduling에 의함),
+  Main Thread는 생성한 순서대로 출력됨”
+  * Thread-{n} 은 run() method안의 출력
+  * Main은 main() method안의 출력
+
+
+- Sort Without Compare
+
+  <img src="https://ifh.cc/g/w3kZ7p.jpg">
+
+  <img src="https://ifh.cc/g/cYZClD.png">
+
+## 6주차
+
+- IP Addresses
+
+  인터넷 안의 호스트의 Identifier
+
+  (네트워크 인터페이스의 ID)
+
+  IPv4(표준) : 4bytes : 0.0.0.0 ~ 255.255.255.255
+  
+  IPv6 : 16 bytes : 더 김
+
+- Hostname
+
+  www.konkuk.ac.kr = 203.30.38.108
+
+  - DNS 
+
+    DNS 서버가 Hostname을 IP 주소로 translation 해준다.
+
+    하나의 호스트 네임이 여러가지의 IP 주소 가질 수 있음(load balancing)
+
+    - 계층
+
+      <img src="https://ifh.cc/g/PRO1Xf.jpg">
+
+    
+
+
+- InetAddress Class
+
+    public 타입을 가지지 않아서 static으로 객체 생성후 객체.method() 방식으로 이용 가능 
+  
+  - Static methods to connect to DNS to resolve hostname
+
+    - public static InetAddress getByName(String host) throws UnkownHostException
+
+      DNS 서버에 접근해서 IP 주소 알아내 그 정보를 가지고 InetAddress 객체 만듬
+
+    - public static InetAddress[] getAllByName(String host) throws UnkownHostException  
+
+    
+    하나가 아닌 여러개의 IP 주소 맵핑 가능
+
+    그 주소들을 가져와서 각각의 IP 주소에 대해서 InetAddress 객체 만듬
+
+    - DNS records
+
+      - DNS : RR(distributed database storing resource records)
+
+        RR foramt : name, value, type ,ttl
+
+      - type = A
+
+        name : 호스트 네임
+        value : IP 주소
+
+      - type = CNAME
+
+        name : 껍데기 이름(www.ibm.com)
+
+        value : 실제 이름(serverseat.backup2.ibm.com)
+
+
+  - getter Methods
+
+    - public String getHostName() : InetAddress객체.getHostName() => IP 주소가 알려진 상황에서 reverse Lookup을 통해 HostName을 읽어옴(DNS 접근 해야함)
+
+    - public String getCanonicalHostName() : 역시 DNS 접근, 정식 HostName 받아옴
+
+    - public String getHostAddress() 
+    : IP 주소 받아옴
+
+     - public static InetAddress getLocalHost() throws UnknownHostException : lookback address
+  
+        내 컴퓨터안의 웹 서버를 만들어 놓고 컴퓨터내에서의 직접 접속을 하려 할때 사용함(외부 접속이 필요하지 않음)
+
+- NetWork Interface
+
+    - getter Methods
+
+      - public Enumeration getInetAddress() : 네트워크 인터페이스에 해당하는 모든 address 가져옴
+
+      - public String getName() : 네트워크 인터페이스의 오브젝트 네임을 가져옴
+
+
+    - One More Getter
+
+      - public byte[] getHardwareAddress() : 인터페이스의 맥 주소(물리주소) 반환
+
+      
+
+  
     
 
 
