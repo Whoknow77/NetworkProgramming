@@ -255,7 +255,7 @@
         내 컴퓨터안의 웹 서버를 만들어 놓고 컴퓨터내에서의 직접 접속을 하려 할때 사용함(외부 접속이 필요하지 않음)
 
 - NetWork Interface
-
+  
     - getter Methods
 
       - public Enumeration getInetAddress() : 네트워크 인터페이스에 해당하는 모든 address 가져옴
@@ -269,7 +269,118 @@
 
       
 
-  
+
+# 2020 midterm-written
+
+
+## 1
+
+범용성 -> outputstream
+
+한 바이트씩 읽는거 -> 
+
+1) outputstream을 bufferedoutputstream으로 감싸는 방법
+
+    ex) BOS bos =  new BOS(fos);
+
+    BIS bis = new BIS(fis);
+
+
+## 2
+
+2021도 출제
+
+## 3
+
+System.out은 스레드들이 공유하는 객체이므로 뒤죽박죽 나오게 됨
+
+--> StringBuilder 객체를 생성해서 활용한다, System.out 동기화
+
+## 4
+WireShark 문제는 따로 안나옴
+
+## 5
+
+openStream에서 connection이 열림
+
+# 2021 midetrm-written
+
+
+## 1
+
+(a)
+
+2 byte씩 읽는것이 비효율적
+
+ByteArray로 한번에 받아오거나 BufferdReader를 사용한다.
+
+(b)
+
+in.close()전에 Exception이 발생하면 close가 확실히 안된다.
+
+=> finally()를 사용해서 다시 try안에서 in.close()를 해준다.
+
+## 2
+
+1Gz, 1000cycle이 필요 => 1초에
+
+요구량 : 1 cycle/byte
+
+1G Cycle : 1초당 1G가 돌아간다.
+
+**10^ -6 초**
+
+1MB : 1Ms 필요
+
+
+1ms 전송 2ms 수신 1ms 처리 
+
+싱글스레드 기준 20ms
+
+멀티스레드 : main(0ms갖고있고, c1에 3ms필요(file transfer시작), 3ms 지나서(c2 start), 3ms 지나서(c3)), 3ms지나서(c4), 3ms지나서 (c5),  / worker 스레드,
+
+## 3
+
+worker thread ended가 2초뒤에 출력된다.
+
+또 1.5초뒤에 main ended 출력
+
+join은 스레드 run이 끝날때까지 대기하고 그 뒤에 코드 실행 안하고 기다림
+
+## 4
+
+notify가 없음 -> 계속 기다리게 됨
+
+put이 먼저 실행될경우 notify 없으면 서로 wait상태로 들어가게 된다.
+
+notify위치 확인
+
+## 5
+
+(a)
+
+고정IP주소를 외부에서 사용가능?
+
+불가능
+
+(b)
+
+(Hostname을 IP주소로 맵핑)
+
+(c)
+
+getByName이 IP주소맵핑, dns서버에 contact해서알아냄, 
+
+웹브라우저에 cashing되어있는 hostname을 맵핑해서 가져온다 or DNS서버를 contact해서 IP주소를 가져오고 그걸 이용해 InetAddress 객체를 만든다.
+
+(d)
+
+어떤 프로세스 or 애플리케이션에 전달되야 하는지 알려줌
+
+
+
+
+
     
 
 
