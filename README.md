@@ -280,6 +280,34 @@
 
 <img src="https://ifh.cc/g/J19xML.jpg">
 
+
+
+<img src="https://ifh.cc/g/NVAPgx.jpg">
+
+
+**IP 주소** : 네트워크 상의 컴퓨터 또는 시스템을 식별하는 주소
+
+**포트** : 통신하는 프로그램 간에 가상의 연결단, 응용프로그램은 하나 이상의 포트를 생성해서 이용함
+
+<img src="https://ifh.cc/g/xKAVbw.jpg">
+
+
+즉, IP주소와 port를 알아야 특정 컴퓨터의 특정 응용프로그램과 통신 가능
+
+<img src="https://ifh.cc/g/S9AQ2H.jpg">
+
+서버 소켓과 클라이언트 소켓으로 나뉨.
+
+<img src="https://ifh.cc/g/XljG4R.jpg">
+
+<img src="https://ifh.cc/g/4AHbTN.jpg">
+
+
+
+
+
+
+
           package week16.hochoi5;
 
           import java.io.BufferedReader;
@@ -331,6 +359,7 @@
 
     }
     }
+    
 
 
 
@@ -395,9 +424,7 @@
     }
     }
 
-
-
-
+**서버는 Accept()를 통해 얻은 Socket을, 클라이언트는 ClientSocket을 통해 데이터를 주고받는다.**
 
 </details>
 
